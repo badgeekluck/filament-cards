@@ -2,7 +2,7 @@
 
 The Filament Cards plugin enables you to create a page containing cards. Card items can be other Filament pages or custom item with a link and can be organized into logical groups for easier navigation, if you have a lots of cards. Each card can have title, an icon and description. When Filament page is added as an item, the cards page automatically applied the page's title, icon and URL, although you can customize these properties as needed.
 
-The best use case for this cards page would be application control panel or settings hub, where you can organize all of the application settings on one page.
+The best use case for this plugin would be application control panel or settings hub, where you can organize all of the application settings on one page.
 
 ## Screenshot
 
