@@ -1,0 +1,26 @@
+{
+    "name": "kanuni/filament-cards",
+    "type": "filament-plugin",
+    "autoload": {
+        "psr-4": {
+            "Kanuni\\FilamentCards\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zvonimir Lokmer",
+            "email": "lokmer@gmail.com"
+        }
+    ],
+    "require": {
+        "filament/filament": "^3.2",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kanuni\\FilamentCards\\FilamentCardsProvider"
+            ]
+        }
+    }
+}
