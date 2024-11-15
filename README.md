@@ -4,6 +4,12 @@ The Filament Cards plugin enables you to create a page containing cards. Card it
 
 The best use case for this cards page would be application control panel or settings hub, where you can organize all of the application settings on one page.
 
+## Screenshot
+
+![Default cards layout](./img/default-view.png "Default layout")
+
+Default view of the Cards Page with items organized into groups and displayed as individual cards
+
 ## Installation
 
 Install the plugin using Composer:
