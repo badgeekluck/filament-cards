@@ -20,9 +20,9 @@ composer require kanuni/filament-cards
 
 ## Creating a cards page
 
-For the sake of an example we are going to create application control panel page. Create filament page in `App\Filament\Pages\ControlPanel.php`. Insted of extending filament page class this page must extends `\Kanuni\FilamentCards\Filament\Pages\CardsPage` class.
+As an example, we will create a custom Filament page that will serve as an application control panel. Start by creating a Filament page at `App\Filament\Pages\ControlPanel.php`. Instead of extending the default Filament page class, this page should extend the `Kanuni\FilamentCards\Filament\Pages\CardsPage` class.
 
-Also we need to add private static method `getCards()` that will return an array of `CardItem` objects.
+Additionally, we need to define a private static method, `getCards()`, which returns an array of `CardItem` objects.
 
 ```php
 namespace App\Filament\Pages;
@@ -44,9 +44,9 @@ class ControlPanel extends CardsPage
 }
 ```
 
-In above example we added `CompanySettings` page as card item on our control panel page. The card item will inherit title and icon from that page. If you want to override that convention or add optional description you can use methods `title()`, `icon()` or `description()` on `CardItem` object.
+In above example we added `CompanySettings` page as card item on our control panel page. The card item will inherit title and icon from that page. If you want to override that convention or add optional description you can use methods `title()`, `icon()` and `description()` on `CardItem` object.
 
-Also note that if provided page to card item is part of Filament resource then title and icon will be used from resource class.
+Note that if the page provided to the card item belongs to a Filament resource, the title and icon will automatically be derived from the resource class.
 
 ## Adding Custom Link as Card Item
 
@@ -203,7 +203,7 @@ use Kanuni\FilamentCards\Concerns\HasCardsBreadcrumb;
 
 class CompanySettings extends Page
 {
-    use HasSettingsBreadcrumb;
+    use HasCardsBreadcrumb;
 }
 ```
 
