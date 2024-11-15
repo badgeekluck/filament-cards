@@ -155,6 +155,8 @@ class ControlPanel extends CardsPage
 }
 ```
 
+[Card items aligned to start](./img/align-start.png "Alignment of card items")
+
 ### Changing the Icon Size
 
 You can customize the icon size by overriding `iconSize` property on the card's page. This property must be  value from the `Filament\Support\Enums\IconSize` enum. There are three sizes `IconSize::Small`, `IconSize::Medium` and `IconSize::Large`. Default size is medium.
@@ -186,6 +188,8 @@ class ControlPanel extends CardsPage
 ```
 
 In this example, the icon is inlined with the title, and its size is set to small.
+
+[Small icon inlined with title](./img/inlined-small-icon.png "Small icon inlined with title")
 
 ## Configuring Breadcrumbs for Pages Opened from the Cards Page
 
