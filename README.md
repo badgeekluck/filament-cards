@@ -134,9 +134,9 @@ private static function getCards(): array
 
 You can also use absolute URL's like in the above example. Optionally you can change to open the link in new browser tab using `openInNewTab()` method.
 
-## Customizing the Display of Settings Panel Items
+## Customizing the Display of Card Items
 
-By default, the content (title, icon, and description) of each panel item is stacked and centered. Customize this alignment with the `itemsAlignment` property on the card's page. The property must be an enum value from `Kanuni\FilamentCards\Enums\Alignment`. Possible values are `Alignment::Start`, `Alignment::Center` and `Alignment::End`.
+By default, the content of each card item (title, icon, and description) is stacked and centered. Customize this alignment with the `itemsAlignment` property on the card's page. The property must be an enum value from `Kanuni\FilamentCards\Enums\Alignment`. Possible values are `Alignment::Start`, `Alignment::Center` and `Alignment::End`.
 
 ```php
 use Kanuni\FilamentCards\Filament\Page\CardsPage;
@@ -197,4 +197,4 @@ class CompanySettings extends Page
 }
 ```
 
-When this trait is applied, the breadcrumbs will be set according to the card item, but only if the page is accessed from the settings panel. This allows you to customize the navigation for card-related pages while keeping default behavior for other pages.
+When this trait is applied, the breadcrumbs will be set according to the card item, but only if the page is accessed from the card's page. This allows you to customize the navigation for card-related pages while keeping default behavior for other pages.
