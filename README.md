@@ -27,8 +27,8 @@ Additionally, we need to define a private static method, `getCards()`, which ret
 ```php
 namespace App\Filament\Pages;
 
-use Filament\FilamentCards\Filament\Pages\CardsPage;
-use Filament\FilamentCards\CardItem;
+use Kanuni\FilamentCards\Filament\Pages\CardsPage;
+use Kanuni\FilamentCards\CardItem;
 use App\Filament\Pages\CompanySettings;
 
 class ControlPanel extends CardsPage
