@@ -9,15 +9,19 @@
 <x-filament-panels::page>
     <div>
         @foreach($cards as $groupName => $items)
+            @php
+                $canCollapse = $canBeCollapsed($groupName);
+            @endphp
             <div x-data="{ collapsed: {{ $isCollapsed($groupName) ? 'true' : 'false' }} }">
-                <h4 @if ($canBeCollapsed($groupName)) @@click="collapsed = ! collapsed" @endif
+                <h4 @if ($canCollapse) @@click="collapsed = ! collapsed" @endif
                     @class([
-                        'cursor-pointer' => $canBeCollapsed($groupName),
+                        'cursor-default' => ! $canCollapse,
+                        'cursor-pointer' => $canCollapse,
                         'text-sm flex items-center tracking-wide text-gray-500 dark:text-gray-400 mb-3 filament-header-heading'
                     ])
                 >
                     @if (filled($groupName))
-                        @if ($canBeCollapsed($groupName))
+                        @if ($canCollapse)
                             <x-icon x-show="! collapsed" name="heroicon-o-chevron-down" class="w-3 h-3 me-2"></x-icon>
                             <x-icon x-show="collapsed" name="heroicon-o-chevron-right" class="w-3 h-3 me-2"></x-icon>
                         @endif
