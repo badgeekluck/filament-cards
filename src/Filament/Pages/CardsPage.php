@@ -71,7 +71,7 @@ abstract class CardsPage extends Page
             return in_array($groupName, static::$disableGroupsCollapse);
         }
 
-        return static::$disableGroupsCollapse;
+        return ! static::$disableGroupsCollapse;
     }
 
     public function getCollapsedGroups(): array

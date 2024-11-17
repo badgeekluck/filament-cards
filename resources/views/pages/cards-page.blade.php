@@ -11,7 +11,10 @@
         @foreach($cards as $groupName => $items)
             <div x-data="{ collapsed: {{ $isCollapsed($groupName) ? 'true' : 'false' }} }">
                 <h4 @if ($canBeCollapsed($groupName)) @@click="collapsed = ! collapsed" @endif
-                    class="cursor-pointer text-sm flex items-center tracking-wide text-gray-500 dark:text-gray-400 mb-3 filament-header-heading"
+                    @class([
+                        'cursor-pointer' => $canBeCollapsed($groupName),
+                        'text-sm flex items-center tracking-wide text-gray-500 dark:text-gray-400 mb-3 filament-header-heading'
+                    ])
                 >
                     @if (filled($groupName))
                         @if ($canBeCollapsed($groupName))
