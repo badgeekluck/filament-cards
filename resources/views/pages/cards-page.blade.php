@@ -10,12 +10,14 @@
     <div>
         @foreach($cards as $groupName => $items)
             <div x-data="{ collapsed: {{ $isCollapsed($groupName) ? 'true' : 'false' }} }">
-                <h4 @@click="collapsed = ! collapsed"
+                <h4 @if ($canBeCollapsed($groupName)) @@click="collapsed = ! collapsed" @endif
                     class="cursor-pointer text-sm flex items-center tracking-wide text-gray-500 dark:text-gray-400 mb-3 filament-header-heading"
                 >
                     @if (filled($groupName))
-                        <x-icon x-show="! collapsed" name="heroicon-o-chevron-down" class="w-3 h-3 me-2"></x-icon>
-                        <x-icon x-show="collapsed" name="heroicon-o-chevron-right" class="w-3 h-3 me-2"></x-icon>
+                        @if ($canBeCollapsed($groupName))
+                            <x-icon x-show="! collapsed" name="heroicon-o-chevron-down" class="w-3 h-3 me-2"></x-icon>
+                            <x-icon x-show="collapsed" name="heroicon-o-chevron-right" class="w-3 h-3 me-2"></x-icon>
+                        @endif
                         {{ $groupName }}
                     @endif
                 </h4>

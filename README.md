@@ -81,9 +81,9 @@ private static function getCards(): array
 }
 ```
 
-## Collapse Groups
+### Collapse Groups
 
-By default, all groups on the card's page are expanded when you open the page. However, you can specify which groups should be collapsed initially. To do this, use the `collapsedGroups` property on the card's page instance and pass an array of group names to be collapsed.
+By default, all groups on the card's page are expanded when you open the page. However, you can specify which groups should be collapsed initially. To do this, use the `$collapsedGroups` property on the card's page instance and pass an array of group names to be collapsed.
 
 ```php
 use Kanuni\FilamentCards\Filament\Page\CardsPage;
@@ -117,6 +117,38 @@ class ControlPanel extends CardsPage
 
         return [];
     }
+}
+```
+
+### Prevent Groups from Collapsing
+
+You can control the collapse functionality for groups by overriding the protected static property `$disableGroupsCollapse`. This property can either be:
+
+- A `bool`, to enable or disable collapsing for all groups
+- An `array` of specific group names, to prevent only those groups from being collapsed
+
+To completely disable the ability to collapse groups, set `$disableGroupsCollapse` to true:
+
+```php
+use Kanuni\FilamentCards\Filament\Page\CardsPage;
+
+class ControlPanel extends CardsPage
+{
+    // Disable collapsing for all groups
+    protected static bool|array $disableGroupsCollapse = true;
+}
+```
+
+To disable collapsing only for certain groups, define an `array` of group names:
+
+```php
+use Kanuni\FilamentCards\Filament\Page\CardsPage;
+
+class ControlPanel extends CardsPage
+{
+    // Disable collapsing for the 'General' group
+    protected static bool|array $disableGroupsCollapse = ['General'];
+}
 ```
 
 ## Defining a Custom URL and/or Open Link in New Tab
@@ -142,7 +174,7 @@ You can also use absolute URL's like in the above example. Optionally you can ch
 
 ## Customizing the Display of Card Items
 
-By default, the content of each card item (title, icon, and description) is stacked and centered. Customize this alignment with the `itemsAlignment` property on the card's page. The property must be an enum value from `Kanuni\FilamentCards\Enums\Alignment`. Possible values are `Alignment::Start`, `Alignment::Center` and `Alignment::End`.
+By default, the content of each card item (title, icon, and description) is stacked and centered. Customize this alignment with the `$itemsAlignment` property on the card's page. The property must be an enum value from `Kanuni\FilamentCards\Enums\Alignment`. Possible values are `Alignment::Start`, `Alignment::Center` and `Alignment::End`.
 
 ```php
 use Kanuni\FilamentCards\Filament\Page\CardsPage;
@@ -159,7 +191,7 @@ class ControlPanel extends CardsPage
 
 ### Changing the Icon Size
 
-You can customize the icon size by overriding `iconSize` property on the card's page. This property must be  value from the `Filament\Support\Enums\IconSize` enum. There are three sizes `IconSize::Small`, `IconSize::Medium` and `IconSize::Large`. Default size is medium.
+You can customize the icon size by overriding `$iconSize` property on the card's page. This property must be  value from the `Filament\Support\Enums\IconSize` enum. There are three sizes `IconSize::Small`, `IconSize::Medium` and `IconSize::Large`. Default size is medium.
 
 ```php
 use Kanuni\FilamentCards\Filament\Page\CardsPage;
@@ -174,7 +206,7 @@ class ControlPanel extends CardsPage
 
 ### Inlining the Icon with the Card Title
 
-To display an item's icon inline with its title, override the `iconInlined` property on the card's page.
+To display an item's icon inline with its title, override the `$iconInlined` property on the card's page.
 
 ```php
 use Kanuni\FilamentCards\Filament\Page\CardsPage;
@@ -187,9 +219,9 @@ class ControlPanel extends CardsPage
 }
 ```
 
-In this example, the icon is inlined with the title, and its size is set to small.
+In the screenshot below, the icons are aligned with the title and set to a small size.
 
-![Small icon inlined with title](./img/inlined-small-icon.png "Small icon inlined with title")
+![Small icons inlined with the title](./img/inlined-small-icon.png "Small icons inlined with the title")
 
 ## Configuring Breadcrumbs for Pages Opened from the Cards Page
 

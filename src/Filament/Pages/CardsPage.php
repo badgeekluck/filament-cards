@@ -19,6 +19,7 @@ abstract class CardsPage extends Page
             'isIconInlined' => $this->isIconInlined(),
             'iconSize' => $this->getIconSize(),
             'alignmentEnum' => Alignment::class,
+            'canBeCollapsed' => fn (string $group): bool => $this->canBeCollapsed($group),
             'isCollapsed' => fn (string $group): bool => $this->isCollapsed($group),
         ];
     }
@@ -29,7 +30,11 @@ abstract class CardsPage extends Page
 
     protected static IconSize $iconSize = IconSize::Medium;
 
+    // Specify groups that are initialy collapsed
     protected static array $collapsedGroups = [];
+
+    // Specify groups that should not be collapsible, or disable collapsing for all groups.
+    protected static bool|array $disableGroupsCollapse = false;
 
     protected static function getCards(): array
     {
@@ -58,6 +63,15 @@ abstract class CardsPage extends Page
         return collect($cards)
             ->each(fn ($item) => $item->originPage($this::class))
             ->groupBy(fn ($item) => $item->getGroup());
+    }
+
+    public function canBeCollapsed(string $groupName): bool
+    {
+        if (is_array(static::$disableGroupsCollapse)) {
+            return in_array($groupName, static::$disableGroupsCollapse);
+        }
+
+        return static::$disableGroupsCollapse;
     }
 
     public function getCollapsedGroups(): array
