@@ -1,6 +1,7 @@
 {
     "name": "kanuni/filament-cards",
     "type": "filament-plugin",
+    "license": "ISC",
     "autoload": {
         "psr-4": {
             "Kanuni\\FilamentCards\\": "src/"
@@ -13,13 +14,12 @@
         }
     ],
     "require": {
-        "filament/filament": "^3.2",
-        "spatie/laravel-package-tools": "^1.9"
+        "filament/filament": "^3.2"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Kanuni\\FilamentCards\\FilamentCardsProvider"
+                "Kanuni\\FilamentCards\\FilamentCardsServiceProvider"
             ]
         }
     }
