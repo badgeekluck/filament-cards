@@ -193,17 +193,17 @@ In this example, the icon is inlined with the title, and its size is set to smal
 
 ## Configuring Breadcrumbs for Pages Opened from the Cards Page
 
-By default, pages opened from the cards page will display the standard breadcrumbs. If you want to customize the breadcrumbs for pages accessed through the cards page, you can add the `Kanuni\FilamentCards\Concerns\HasCardsBreadcrumb` trait in your page class.
+By default, pages opened from the cards page will display the standard breadcrumbs. If you want to customize the breadcrumbs for pages accessed through the cards page, you can add the `Kanuni\FilamentCards\Concerns\HasOriginBreadcrumb` trait in your page class.
 
 ```php
 namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
-use Kanuni\FilamentCards\Concerns\HasCardsBreadcrumb;
+use Kanuni\FilamentCards\Concerns\HasOriginBreadcrumb;
 
 class CompanySettings extends Page
 {
-    use HasCardsBreadcrumb;
+    use HasOriginBreadcrumb;
 }
 ```
 
