@@ -68,7 +68,7 @@ abstract class CardsPage extends Page
     public function canBeCollapsed(string $groupName): bool
     {
         if (is_array(static::$disableGroupsCollapse)) {
-            return in_array($groupName, static::$disableGroupsCollapse);
+            return ! in_array($groupName, static::$disableGroupsCollapse);
         }
 
         return ! static::$disableGroupsCollapse;
