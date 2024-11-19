@@ -18,6 +18,19 @@ Install the plugin using Composer:
 composer require kanuni/filament-cards
 ```
 
+In an effort to align with Filament's theming methodology you will need to use a custom theme to use this plugin.
+
+> **Note**
+> If you have not set up a custom theme and are using a Panel follow the instructions in the [Filament Docs](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) first. The following applies to both the Panels Package and the standalone Forms package.
+
+Add the plugin's views to your `tailwind.config.js` file.
+
+```js
+content: [
+    './vendor/kanuni/filament-cards/resources/**/*.blade.php',
+]
+```
+
 ## Creating a cards page
 
 As an example, we will create a custom Filament page that will serve as an application control panel. Start by creating a Filament page at `App\Filament\Pages\ControlPanel.php`. Instead of extending the default Filament page class, this page should extend the `Kanuni\FilamentCards\Filament\Pages\CardsPage` class.
