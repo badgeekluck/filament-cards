@@ -1,4 +1,10 @@
+![Filament Cards Hero](./img/filament-cards-hero.png "Filament Cards Hero")
+
 # Filament Cards Plugin
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kanuni/filament-cards.svg?style=flat-square)](https://packagist.org/packages/kanuni/filament-cards)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![Total Downloads](https://img.shields.io/packagist/dt/kanuni/filament-cards.svg?style=flat-square)](https://packagist.org/packages/kanuni/filament-cards)
 
 The Filament Cards plugin enables you to create a page containing cards. Card items can be other Filament pages or custom item with a link and can be organized into logical groups for easier navigation, if you have a lots of cards. Each card can have title, an icon and description. When Filament page is added as an item, the cards page automatically applied the page's title, icon and URL, although you can customize these properties as needed.
 
