@@ -6,6 +6,22 @@
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Total Downloads](https://img.shields.io/packagist/dt/kanuni/filament-cards.svg?style=flat-square)](https://packagist.org/packages/kanuni/filament-cards)
 
+- [Intro](#intro)
+- [Screenshot](#screenshot)
+- [Installation](#installation)
+- [Creating a Cards Page](#creating-a-cards-page)
+- [Adding Custom Link as Card Item](#adding-custom-link-as-card-item)
+- [Grouping Panel Items](#grouping-panel-items)
+    - [Collapse Groups](#collapse-groups)
+    - [Prevent Groups from Collapsing](#prevent-groups-from-collapsing)
+- [Defining a Custom URL and/or Open Link in New Tab](#defining-a-custom-url-andor-open-link-in-new-tab)
+- [Customizing the Display of Card Items](#customizing-the-display-of-card-items)
+    - [Changing the Icon Size](#changing-the-icon-size)
+    - [Inlining the Icon with the Card Title](#inlining-the-icon-with-the-card-title)
+- [Configuring Breadcrumbs for Pages Opened from the Cards Page](#configuring-breadcrumbs-for-pages-opened-from-the-cards-page)
+
+## Intro
+
 The Filament Cards plugin enables you to create a page containing cards. Card items can be other Filament pages or custom item with a link and can be organized into logical groups for easier navigation, if you have a lots of cards. Each card can have title, an icon and description. When Filament page is added as an item, the cards page automatically applied the page's title, icon and URL, although you can customize these properties as needed.
 
 The best use case for this plugin would be application control panel or settings hub, where you can organize all of the application settings on one page.
