@@ -63,6 +63,13 @@ class CardItem
         return $this;
     }
 
+    public function url(string $url): static
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
     public function openInNewTab(bool $newTab = true): static
     {
         $this->openInNewTab = $newTab;
@@ -124,9 +131,15 @@ class CardItem
 
     public function getUrl(): string
     {
-        $url = isset($this->page)
-            ? $this->page::getUrl()
-            : $this->url;
+        $url = null;
+
+        if (isset($this->page)) {
+            $url = $this->page::getUrl();
+        }
+
+        if (isset($this->url)) {
+            $url = $this->url;
+        }
 
         if ($url) {
             $paramName = static::$originQueryParameter;
