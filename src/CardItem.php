@@ -135,15 +135,14 @@ class CardItem
 
         if (isset($this->page)) {
             $url = $this->page::getUrl();
+
+            // Append origin parameter to the page link
+            $paramName = static::$originQueryParameter;
+            $url .= "?{$paramName}={$this->getOriginParameter()}";
         }
 
         if (isset($this->url)) {
             $url = $this->url;
-        }
-
-        if ($url) {
-            $paramName = static::$originQueryParameter;
-            $url .= "?{$paramName}={$this->getOriginParameter()}";
         }
 
         return $url ?? '#';
