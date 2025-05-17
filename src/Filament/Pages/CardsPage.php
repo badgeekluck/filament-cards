@@ -41,6 +41,20 @@ abstract class CardsPage extends Page
         return [];
     }
 
+    protected static $appendedCards = [];
+
+    public static function addCards(array|\Kanuni\FilamentCards\CardItem $cards): void
+    {
+        if (! is_array($cards)) {
+            $cards = [$cards];
+        }
+
+        static::$appendedCards = [
+            ...static::$appendedCards,
+            ...$cards,
+        ];
+    }
+
     public function isIconInlined(): bool
     {
         return static::$iconInlined;
@@ -58,7 +72,10 @@ abstract class CardsPage extends Page
 
     public function getItems(): Collection
     {
-        $cards = $this->getCards();
+        $cards = [
+            ...static::getCards(),
+            ...static::$appendedCards,
+        ];
 
         return collect($cards)
             ->each(fn ($item) => $item->originPage($this::class))
