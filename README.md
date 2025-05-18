@@ -83,6 +83,32 @@ In above example we added `CompanySettings` page as card item on our control pan
 
 Note that if the page provided to the card item belongs to a Filament resource, the title and icon will automatically be derived from the resource class.
 
+## Dynamically Adding Card Items to the Cards Page
+
+The CardsPage class includes a static `addCards()` method, allowing you to dynamically add card items to the page from outside the class. This is especially useful in modular applications or when building packages that need to register their own cards.
+
+This means you can register additional cards for your ControlPanel page from a service provider, boot method, or another context, without modifying the class itself.
+
+For example, in a service provider (like `AppServiceProvider` or a dedicated one), you can do:
+
+```php
+use App\Filament\Pages\ControlPanel;
+use Kanuni\FilamentCards\CardItem;
+use App\Filament\Pages\UserManagement;
+
+public function boot(): void
+{
+    ControlPanel::addCards([
+        CardItem::make(UserManagement::class)
+            ->title('User Accounts')
+            ->icon('heroicon-o-users')
+            ->description('Manage roles, permissions, and user accounts'),
+    ]);
+}
+```
+
+This allows better modularity, where each domain or feature can register its own card on the control panel, promoting separation of concerns.
+
 ## Adding Custom Link as Card Item
 
 You can add custom link as a card item by passing URL to CardItem's `make()` method. See following example:

@@ -1,3 +1,7 @@
+# v0.2.4
+
+- Added addCards() method on CardsPage to enable adding items from third-party code
+
 # v0.2.1
 
 - Added the ability to prevent card groups from collapsing
