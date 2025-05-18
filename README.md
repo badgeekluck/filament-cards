@@ -10,6 +10,7 @@
 - [Screenshot](#screenshot)
 - [Installation](#installation)
 - [Creating a Cards Page](#creating-a-cards-page)
+- [Dynamically Adding Card Items to the Cards Page](#dynamically-adding-card-items-to-the-cards-page)
 - [Adding Custom Link as Card Item](#adding-custom-link-as-card-item)
 - [Grouping Panel Items](#grouping-panel-items)
     - [Collapse Groups](#collapse-groups)
