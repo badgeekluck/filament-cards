@@ -86,7 +86,7 @@ Note that if the page provided to the card item belongs to a Filament resource, 
 
 ## Dynamically Adding Card Items to the Cards Page
 
-The CardsPage class includes a static `addCards()` method, allowing you to dynamically add card items to the page from outside the class. This is especially useful in modular applications or when building packages that need to register their own cards.
+The `CardsPage` class includes a static `addCards()` method, allowing you to dynamically add card items to the page from outside the class. This is especially useful in modular applications or when building packages that need to register their own cards.
 
 This means you can register additional cards for your ControlPanel page from a service provider, boot method, or another context, without modifying the class itself.
 
@@ -99,6 +99,7 @@ use App\Filament\Pages\UserManagement;
 
 public function boot(): void
 {
+    // ControlPanel page extends CardsPage class
     ControlPanel::addCards([
         CardItem::make(UserManagement::class)
             ->title('User Accounts')
