@@ -144,6 +144,20 @@ private static function getCards(): array
 }
 ```
 
+The group() method now also accepts a Closure as the group name argument. This allows the group name to be lazily evaluated at render time:
+
+```php
+use Kanuni\FilamentCards\CardItem;
+
+private static function getCards(): array
+{
+    return [
+        CardItem::make(CompanySettings::class)
+            ->group(fn () => __('company.group')),
+    ];
+}
+```
+
 ### Collapse Groups
 
 By default, all groups on the card's page are expanded when you open the page. However, you can specify which groups should be collapsed initially. To do this, use the `$collapsedGroups` property on the card's page instance and pass an array of group names to be collapsed.
