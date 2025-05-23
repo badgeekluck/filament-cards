@@ -1,3 +1,7 @@
+# v0.2.5
+
+- Added support for passing a Closure to the `CardItem::group()` method
+
 # v0.2.4
 
 - Added `addCards()` method on CardsPage to enable adding items from third-party code
