@@ -2,6 +2,7 @@
 
 namespace Kanuni\FilamentCards;
 
+use Closure;
 use Filament\Pages\Page;
 
 class CardItem
@@ -15,7 +16,7 @@ class CardItem
         protected ?string $title = null,
         protected ?string $description = null,
         protected ?string $icon = null,
-        protected ?string $group = null,
+        protected string|Closure|null $group = null,
         protected ?string $url = null,
         protected bool $openInNewTab = false,
     )
@@ -56,7 +57,7 @@ class CardItem
         return $this;
     }
 
-    public function group(string $group): static
+    public function group(string|Closure|null $group): static
     {
         $this->group = $group;
 
@@ -126,6 +127,10 @@ class CardItem
 
     public function getGroup(): ?string
     {
+        if ($this->group instanceof Closure) {
+            return ($this->group)();
+        }
+
         return $this->group;
     }
 
