@@ -153,7 +153,7 @@ private static function getCards(): array
 }
 ```
 
-The group() method now also accepts a Closure as the group name argument. This allows the group name to be lazily evaluated at render time:
+The `group()` method now also accepts a Closure as the group name argument. This allows the group name to be lazily evaluated at render time:
 
 ```php
 use Kanuni\FilamentCards\CardItem;
