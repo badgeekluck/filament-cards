@@ -36,21 +36,21 @@ class CardItem
         return $this;
     }
 
-    public function title(string $title): static
+    public function title(string|Closure $title): static
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function description(string $description): static
+    public function description(string|Closure $description): static
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function icon(string $icon): static
+    public function icon(string|Closure $icon): static
     {
         $this->icon = $icon;
 
@@ -64,7 +64,7 @@ class CardItem
         return $this;
     }
 
-    public function url(string $url): static
+    public function url(string|Closure $url): static
     {
         $this->url = $url;
 
@@ -85,7 +85,9 @@ class CardItem
 
     public function getTitle(): string
     {
-        $title = $this->title;
+        $title = ($this->title instanceof Closure)
+            ? ($this->title)()
+            : $this->title;
 
         if (blank($title) && isset($this->page)) {
             if ($resource = $this->getPageResource()) {
@@ -100,12 +102,18 @@ class CardItem
 
     public function getDescription(): string
     {
+        if ($this->description instanceof Closure) {
+            return ($this->description)();
+        }
+
         return $this->description ?? '';
     }
 
     public function getIcon(): ?string
     {
-        $icon = $this->icon;
+        $icon = ($this->icon instanceof Closure)
+            ? ($this->icon)()
+            : $this->icon;
 
         if (blank($icon) && isset($this->page)) {
             // First try to get page's icon
@@ -136,21 +144,25 @@ class CardItem
 
     public function getUrl(): string
     {
-        $url = null;
+        $url = ($this->url instanceof Closure)
+            ? ($this->url)()
+            : $this->url;
+
+        if (filled($url)) {
+            return $url;
+        }
 
         if (isset($this->page)) {
             $url = $this->page::getUrl();
 
             // Append origin parameter to the page link
             $paramName = static::$originQueryParameter;
-            $url .= "?{$paramName}={$this->getOriginParameter()}";
+            $paramValue = $this->getOriginParameter();
+
+            return "$url?{$paramName}={$paramValue}";
         }
 
-        if (isset($this->url)) {
-            $url = $this->url;
-        }
-
-        return $url ?? '#';
+        return '#';
     }
 
     protected function getPageResource(): ?string

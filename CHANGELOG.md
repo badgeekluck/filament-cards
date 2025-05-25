@@ -1,3 +1,7 @@
+# v0.2.6
+
+- Added support for passing a Closure to the `title()`, `description()`, `icon()`, and `url()` methods of `CardItem` object.
+
 # v0.2.5
 
 - Added support for passing a Closure to the `CardItem::group()` method

@@ -111,6 +111,15 @@ public function boot(): void
 
 This allows better modularity, where each domain or feature can register its own card on the control panel, promoting separation of concerns.
 
+You can also pass a Closure to the `title()`, `description()`, `icon()` and `url()` methods. This allows you to return values conditionally or dynamically. For example:
+
+```php
+CardItem::make('/some/path')
+    ->title(fn () => __('user-accounts.title'))
+    ->icon(fn () => __('user-accounts.icon'))
+    ->description(fn () => __('user-accounts.description')),
+```
+
 ## Adding Custom Link as Card Item
 
 You can add custom link as a card item by passing URL to CardItem's `make()` method. See following example:
