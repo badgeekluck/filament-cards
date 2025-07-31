@@ -7,7 +7,6 @@
     };
 @endphp
 <x-filament-panels::page>
-    {{-- SADECE BU SATIRI GÜNCELLEYİN --}}
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         @foreach($cards as $groupName => $items)
             @php
